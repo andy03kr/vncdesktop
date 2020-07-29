@@ -1,6 +1,6 @@
 ;
-;
-;  copy /b 7zSD.sfx + config.txt + gui.7z remhelp.exe
+; plink.exe -ssh -N -R 45554:127.0.0.1:5900 -hostkey 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d -P 10022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+; copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 ;
 ;
 
@@ -97,7 +97,6 @@ Func ServerStat ( $sServer, $iSSH_port )
    Return 5
 EndFunc
 
-; c:\uvnc\bin\plink.exe -ssh -N -R 45554:127.0.0.1:5900 -hostkey 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d -P 10022 -i c:\uvnc\bin\remhelp.ppk -l remhelp -batch remhelp.aska.ua
 Func ReNewPARAM ( $sServer, $iSSH_port )
    If $sServer = "" Or $sServer = "127.0.0.1" Then Return 0
    If $iVNC_exists == 0 Then $sGUI_PASS = Random ( @MSEC + 40000, 50000, 1 )
