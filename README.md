@@ -108,9 +108,13 @@ Windows компьютер с установленным AutoIT для перв�
 Скопировать в каталог build 7zSD.sfx
 Создать текстовый файл config.txt
 > ;!@Install@!UTF-8!
+
 > Title="vncdesktop v1.0.0.0"
+
 > BeginPrompt="Do you want to install/run vncdesktop v1.0.0.0?"
+
 > RunProgram="vncdesktop.exe"
+
 > ;!@InstallEnd@!
 
 Затем выполнить
