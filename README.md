@@ -51,13 +51,13 @@ The rest of the /etc/ssh/sshd_config settings at your discretion
 Configure firewall
    > iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
 
-   > iptables -I INPUT -p tcp --dport 40000: 50000 -j ACCEPT
+   > iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
 
 or
 
-   > firewalld-cmd --permanent --add-port = 22022 / tcp
+   > firewalld-cmd --permanent --add-port=22022/tcp
 
-   > firewalld-cmd --permanent --add-port = 40000 / tcp: 50000 / tcp
+   > firewalld-cmd --permanent --add-port=40000/tcp:50000/tcp
 
 Transfer the .ssh/id_rsa file to the Windows computer
    > usermod -s /bin/false vncproxy
