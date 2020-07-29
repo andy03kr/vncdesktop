@@ -149,4 +149,4 @@
 ![app mode](pictures/vncdesktop_app.png)
 
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например
-  > vncviewer vncproxy.home.lan:47259
+  > vncviewer vncproxy.home.lan:45792
