@@ -53,8 +53,8 @@ Windows компьютер с установленным AutoIT для первичной настройки и тестирования
 >> The server's ssh-ed25519 key fingerprint is:
 >> ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
 >> Connection abandoned.
-Строку "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d" добавить в файл vncdesktop.ini параметр
-> hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"
+Строку "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" добавить в файл vncdesktop.ini параметр
+> hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 В файл vncdesktop.ini параметры
 определяет прокси сервер
 > server=vncproxy.home.lan
