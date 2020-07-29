@@ -49,11 +49,13 @@ Windows компьютер с установленным AutoIT для перв�
 > usermod -s /bin/false vncproxy
 
 ### Windows компьютер
-Загрузить и распаковать архив vncdesktop
-Установить [AutoIT](https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe)
+Загрузить и распаковать архив vncdesktop.
+Установить AutoIT.
 Разархивировать архив putty в c:\putty
 В командной строке перейти в каталог c:\putty и выполнить PUTTYGEN.EXE
+
 В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог vncdesktop\bin\
+
 Для получения hostkey, выполнить
 > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
 >> The server's host key is not cached in the registry. You
