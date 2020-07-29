@@ -34,9 +34,11 @@
   > cd /home/vncproxy
   > ssh_keygen
   > cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
+
 В файле /etc/ssh/sshd_config добавить:
   > Port 22022
   > GatewayPorts yes
+
 Остальные настройки /etc/ssh/sshd_config на свое усмотрение
 
 Настроить фаервол
@@ -47,7 +49,7 @@
   > firewalld-cmd --permanent --add-port=40000/tcp:50000/tcp
 
 Файл .ssh/id_rsa передать на Windows компьютер
-> usermod -s /bin/false vncproxy
+  > usermod -s /bin/false vncproxy
 
 ### Windows компьютер
 Загрузить и распаковать архив vncdesktop.
@@ -58,20 +60,15 @@
 В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог vncdesktop\bin\
 
 Для получения hostkey, выполнить
-> plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
-
->> The server's host key is not cached in the registry. You
-
->> have no guarantee that the server is the computer you think it is.
-
->> The server's ssh-ed25519 key fingerprint is:
-
->> ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
-
->> Connection abandoned.
+  > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+    >> The server's host key is not cached in the registry. You
+    >> have no guarantee that the server is the computer you think it is.
+    >> The server's ssh-ed25519 key fingerprint is:
+    >> ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
+    >> Connection abandoned.
 
 Строку "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" добавить в файл vncdesktop.ini параметр
-> hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
+  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 В файл vncdesktop.ini параметры
 определяет прокси сервер
