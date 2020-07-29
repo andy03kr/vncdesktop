@@ -63,13 +63,12 @@
 ### Windows компьютер
 Загрузить и распаковать архив vncdesktop.
 Установить AutoIT.
-Разархивировать архив putty в c:\putty
-В командной строке перейти в каталог c:\putty и выполнить PUTTYGEN.EXE
+Разархивировать архив putty в c:\putty и выполнить PUTTYGEN.EXE
 
-В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог vncdesktop\bin\
+В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог c:\vncdesktop\bin\
 
-Для получения hostkey, выполнить
-  > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+Для получения hostkey, в командной строке перейти в каталог c:\putty и выполнить
+  > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
 
     The server's host key is not cached in the registry. You
 	have no guarantee that the server is the computer you think it is.
@@ -120,14 +119,17 @@
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID"
 
 Если на Windows компьютере установлен VNC сервер, режим "Mode" будет "service mode" и пароль будет использоваться заданный при установке.
-Если удалось подключиться без ошибок, можно собрать проект - нажать F7. В каталоге с файлом vncdesktop.au3 будет создан файл vncdesktop.exe
 
-В каталоге vncdesktop создать каталог build.
+### Сборка
+
+Если удалось подключиться без ошибок, можно собрать проект - нажать F7. В каталоге c:\vncdesktop будет создан файл vncdesktop.exe
+
+В каталоге c:\vncdesktop\ создать каталог build.
 Создать архив:
-  > "c:\Program Files\7-Zip\7z.exe" a -r build\vncdesktop.7z bin vncdesktop.exe
+  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
 Скопировать в каталог build 7zSD.sfx
-Создать текстовый файл config.txt
+Создать текстовый файл config.txt в каталоге build
   > ;!@Install@!UTF-8!
 
   > Title="vncdesktop v1.0.0.0"
@@ -138,7 +140,8 @@
 
   > ;!@InstallEnd@!
 
-Затем выполнить
+Затем в каталоге build выполнить
  > copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
-Будет создан vncdesktop.exe который можно запустить и проверить работу пакета
+Будет создан vncdesktop.exe который можно запустить и проверить работу пакета.
+На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например vncproxy.home.lan:45672
