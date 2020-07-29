@@ -149,7 +149,7 @@ VNC запущен в режиме сервиса
 ![service mode](pictures/vncdesktop_svc.png)
 
 VNC запущен в режиме приложения
-![app mode](pictures/vncdesktop_app.png)
+![application mode](pictures/vncdesktop_app.png)
 
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например
   > vncviewer vncproxy.home.lan:45792
