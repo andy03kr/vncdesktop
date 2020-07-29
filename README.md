@@ -17,7 +17,7 @@
 - Windows компьютер с установленным AutoIT для первичной настройки и тестирования
 - Пакет [putty.zip](https://the.earth.li/~sgtatham/putty/latest/w32/putty.zip)
 - Пакет [UltraVNC](https://www.uvnc.com/downloads/ultravnc/129-download-ultravnc-1231.html)
-- Пакет [7zip]https://www.7-zip.org/download.html)
+- Пакет [7zip](https://www.7-zip.org/download.html)
 - Пакет [LZMA SDK](https://www.7-zip.org/sdk.html)
 
 ## Установка
