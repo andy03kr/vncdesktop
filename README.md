@@ -24,7 +24,7 @@ In this case, vncdesktop will only provide a tunnel to the proxy server.
 This example will use:
 - linux server name - vncproxy.home.lan
 - ssh port - 22022
-- port range for VNC connections - 40000: 50000
+- port range for VNC connections - 40000:50000
 - project directory c:\vncdesktop\
 
 ### Linux computer
