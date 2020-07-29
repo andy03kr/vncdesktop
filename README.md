@@ -15,10 +15,10 @@ In this case, vncdesktop will only provide a tunnel to the proxy server.
 ## Requirements
 - Linux computer with a public address
 - Windows computer with AutoIT installed for initial setup and testing
-- Package [putty.zip] (https://the.earth.li/~sgtatham/putty/latest/w32/putty.zip)
-- Package [UltraVNC] (https://www.uvnc.com/downloads/ultravnc/129-download-ultravnc-1231.html)
-- Package [7zip] (https://www.7-zip.org/download.html)
-- Package [LZMA SDK] (https://www.7-zip.org/sdk.html)
+- Package [putty.zip](https://the.earth.li/~sgtatham/putty/latest/w32/putty.zip)
+- Package [UltraVNC](https://www.uvnc.com/downloads/ultravnc/129-download-ultravnc-1231.html)
+- Package [7zip](https://www.7-zip.org/download.html)
+- Package [LZMA SDK](https://www.7-zip.org/sdk.html)
 
 ## Installation
 This example will use:
