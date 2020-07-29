@@ -149,9 +149,11 @@ Then, in the c:\vncdesktop\build directory, run
 Run c:\vncdesktop\build\vncdesktop.exe
 
 VNC started in service mode
+
 ![service mode](pictures/vncdesktop_svc.png)
 
 VNC launched in application mode
+
 ![application mode](pictures/vncdesktop_app.png)
 
 On another computer, run vncviewer vncproxy.home.lan: "Your ID" without quotes, for example
@@ -307,9 +309,11 @@ On another computer, run vncviewer vncproxy.home.lan: "Your ID" without quotes, 
 Запустите c:\vncdesktop\build\vncdesktop.exe
 
 VNC запущен в режиме сервиса
+
 ![service mode](pictures/vncdesktop_svc.png)
 
 VNC запущен в режиме приложения
+
 ![application mode](pictures/vncdesktop_app.png)
 
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например
