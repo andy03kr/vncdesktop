@@ -145,7 +145,10 @@
 
 Будет создан vncdesktop.exe который можно запустить и проверить работу пакета.
 
+VNC запущен в режиме сервиса
 ![service mode](pictures/vncdesktop_svc.png)
+
+VNC запущен в режиме приложения
 ![app mode](pictures/vncdesktop_app.png)
 
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например
