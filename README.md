@@ -94,7 +94,7 @@ local VNC port
 proxy server user
   > sshuser = vncproxy
 
-crt file name
+private key file name
   > certificate = vncproxy.ppk
 
 proxy fingerprint
