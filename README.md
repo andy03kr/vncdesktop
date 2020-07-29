@@ -97,7 +97,7 @@ proxy server user
 private key file name
   > certificate = vncproxy.ppk
 
-proxy fingerprint
+proxy server fingerprint
   > hostkey = "24: b1: c4: 9e: c9: b5: d6: e6: 03: f2: df: 1f: 64: dd: 81: 1d"
 
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
