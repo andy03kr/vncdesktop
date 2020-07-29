@@ -144,4 +144,5 @@
  > copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
 Будет создан vncdesktop.exe который можно запустить и проверить работу пакета.
+
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без ковычек, например vncproxy.home.lan:45672
