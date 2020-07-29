@@ -32,28 +32,19 @@
   > useradd -d /home/vncproxy -s /bin/bash vncproxy
   > su vncproxy
   > cd /home/vncproxy
-
-> ssh_keygen
-
-> cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
-
+  > ssh_keygen
+  > cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
 В файле /etc/ssh/sshd_config добавить:
-> Port 22022
-
-> GatewayPorts yes
-
+  > Port 22022
+  > GatewayPorts yes
 Остальные настройки /etc/ssh/sshd_config на свое усмотрение
 
 Настроить фаервол
-> iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
-
-> iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
-
+  > iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
+  > iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
 или
-
-> firewalld-cmd --permanent --add-port=22022/tcp
-
-> firewalld-cmd --permanent --add-port=40000/tcp:50000/tcp
+  > firewalld-cmd --permanent --add-port=22022/tcp
+  > firewalld-cmd --permanent --add-port=40000/tcp:50000/tcp
 
 Файл .ssh/id_rsa передать на Windows компьютер
 > usermod -s /bin/false vncproxy
