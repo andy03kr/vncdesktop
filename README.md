@@ -74,9 +74,9 @@ To get the hostkey, on the command line, go to the c:\putty directory and run co
     Connection abandoned.
 ```
 Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop.ini file
-  > hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
+  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
-In vncdesktop.ini file parameters
+Parameters in vncdesktop.ini file
 ```html
     server = vncproxy.home.lan                                        #defines a proxy server
     sshport = 22022                                                   #the ssh port on proxy server
@@ -223,15 +223,20 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
     hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"       #отпечаток прокси сервера
 ```
 Из пакета UltraVNC понадобится setpasswd.exe, winvnc.exe и UltraVNC.ini
+```html
+    setpasswd.exe - для установки VNC-пароля, когда VNC работает в режиме приложения
+	winvnc.exe - VNC сервер
+	UltraVNC.ini - файл параметров VNC сервера. Обратите внимание, не все параметры определяются этим файлом.
+```
 В файл UltraVNC.ini добавить или изменить параметры
 ```html
-  RemoveWallpaper=1
-  RemoveAero=1
-  AllowLoopback=1
-  DefaultScale=1
-  DisableTrayIcon=1
-  PortNumber=15900
-  noscreensaver=1
+    RemoveWallpaper=1
+    RemoveAero=1
+    AllowLoopback=1
+    DefaultScale=1
+    DisableTrayIcon=1
+    PortNumber=15900
+    noscreensaver=1
 ```
 В SciTE Script Editor открыть файл vncdesktop.au3 нажать F5 - запустится проект.
 
