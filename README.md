@@ -30,32 +30,32 @@ This example will use:
 ### Linux computer
 Create user:
 ```html
-  useradd -d /home/vncproxy -s /bin/bash vncproxy
-  su vncproxy
-  cd /home/vncproxy
-  ssh_keygen
-  cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
+ useradd -d /home/vncproxy -s /bin/bash vncproxy
+ su vncproxy
+ cd /home/vncproxy
+ ssh_keygen
+ cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
 ```
 In the /etc/ssh/sshd_config file add:
 ```html
-  Port 22022
-  GatewayPorts yes
-  ForceCommand /bin/false
+ Port 22022
+ GatewayPorts yes
+ ForceCommand /bin/false
 ```
 The rest of the /etc/ssh/sshd_config settings at your discretion
 
 Configure firewall
 ```html
-  iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
-  iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
+ iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
+ iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
 ```
 or
 ```html
-  firewalld-cmd --permanent --add-port=22022/tcp
-  firewalld-cmd --permanent --add-port=40000-50000/tcp
+ firewalld-cmd --permanent --add-port=22022/tcp
+ firewalld-cmd --permanent --add-port=40000-50000/tcp
 ```
 Transfer the .ssh/id_rsa file to the Windows computer
-  > usermod -s /bin/false vncproxy
+ > usermod -s /bin/false vncproxy
 
 ### Windows computer
 Download and unpack the vncdesktop archive.
@@ -65,41 +65,41 @@ Unzip the putty archive to c:\putty and run PUTTYGEN.EXE
 In the "Conversions" - "Import Key" menu, import the id_rsa key - "Save private key" - save as vncproxy.ppk to the c:\vncdesktop\bin\ directory
 
 To get the hostkey, on the command line, go to the c:\putty directory and run command
-  > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+ > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
 ```html
-  The server's host key is not cached in the registry. You
-  have no guarantee that the server is the computer you think it is.
-  The server's ssh-ed25519 key fingerprint is:
-  ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
-  Connection abandoned.
+ The server's host key is not cached in the registry. You
+ have no guarantee that the server is the computer you think it is.
+ The server's ssh-ed25519 key fingerprint is:
+ ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
+ Connection abandoned.
 ```
 Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop.ini file
-  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
+ > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 Parameters in vncdesktop.ini file
 ```html
-  server = vncproxy.home.lan                                   #defines a proxy server
-  sshport = 22022                                              #the ssh port on proxy server
-  vncport = 15900                                              #local VNC port
-  sshuser = vncproxy                                           #proxy server user
-  certificate = vncproxy.ppk                                   #private key file name
-  hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #proxy server fingerprint
+ server = vncproxy.home.lan                                   #defines a proxy server
+ sshport = 22022                                              #the ssh port on proxy server
+ vncport = 15900                                              #local VNC port
+ sshuser = vncproxy                                           #proxy server user
+ certificate = vncproxy.ppk                                   #private key file name
+ hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #proxy server fingerprint
 ```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
 ```html
-  setpasswd.exe - define VNC-password, when VNC in application mode
-  winvnc.exe - VNC server
-  UltraVNC.ini - parameters file. Please note that not all parameters are defined by this file.
+ setpasswd.exe - define VNC-password, when VNC in application mode
+ winvnc.exe - VNC server
+ UltraVNC.ini - parameters file. Please note that not all parameters are defined by this file.
 ```
 Add or change parameters to UltraVNC.ini file
 ```html
-  RemoveWallpaper = 1
-  RemoveAero = 1
-  AllowLoopback = 1
-  DefaultScale = 1
-  DisableTrayIcon = 1
-  PortNumber = 15900
-  noscreensaver = 1
+ RemoveWallpaper = 1
+ RemoveAero = 1
+ AllowLoopback = 1
+ DefaultScale = 1
+ DisableTrayIcon = 1
+ PortNumber = 15900
+ noscreensaver = 1
 ```
 Open the vncdesktop.au3 file in SciTE Script Editor and press F5 - the project will start.
 
@@ -112,19 +112,19 @@ If a VNC server is installed on a Windows computer, the "Mode" will be "service 
 If you were able to connect without errors, you can build the project - press F7. The file c:\vncdesktop\vncdesktop.exe will be created
 
 Create an archive in the c:\vncdesktop\build directory:
-  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
+ > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
 Copy file 7zSD.sfx to c:\vncdesktop\build directory
 Create text file config.txt in c:\vncdesktop\build directory
 ```html
-  ;! @ Install @! UTF-8!
-  Title = "vncdesktop v1.0.0.0"
-  BeginPrompt = "Do you want to install/run vncdesktop v1.0.0.0?"
-  RunProgram = "vncdesktop.exe"
-  ;! @ InstallEnd @!
+ ;! @ Install @! UTF-8!
+ Title = "vncdesktop v1.0.0.0"
+ BeginPrompt = "Do you want to install/run vncdesktop v1.0.0.0?"
+ RunProgram = "vncdesktop.exe"
+ ;! @ InstallEnd @!
 ```
 Then, in the c:\vncdesktop\build directory, run
-  > copy / b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
+ > copy / b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
 c:\vncdesktop\build\vncdesktop.exe will be created.
 
@@ -139,7 +139,7 @@ VNC launched in application mode
 ![application mode](pictures/vncdesktop_app.png)
 
 On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, for example
-  > vncviewer vncproxy.home.lan:45792
+ > vncviewer vncproxy.home.lan:45792
 
 # README.RU
 ## О vncdesktop
@@ -172,32 +172,32 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ### Linux компьютер
 Создать пользователя:
 ```html
-  useradd -d /home/vncproxy -s /bin/bash vncproxy
-  su vncproxy
-  cd /home/vncproxy
-  ssh_keygen
-  cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
+ useradd -d /home/vncproxy -s /bin/bash vncproxy
+ su vncproxy
+ cd /home/vncproxy
+ ssh_keygen
+ cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
 ```
 В файле /etc/ssh/sshd_config добавить:
 ```html
-  Port 22022
-  GatewayPorts yes
-  ForceCommand /bin/false
+ Port 22022
+ GatewayPorts yes
+ ForceCommand /bin/false
 ```
 Остальные настройки /etc/ssh/sshd_config на свое усмотрение
 
 Настроить фаервол
 ```html
-  iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
-  iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
+ iptables -I INPUT -p tcp --dport 22022 -j ACCEPT
+ iptables -I INPUT -p tcp --dport 40000:50000 -j ACCEPT
 ```
 или
 ```html
-  firewalld-cmd --permanent --add-port=22022/tcp
-  firewalld-cmd --permanent --add-port=40000-50000/tcp
+ firewalld-cmd --permanent --add-port=22022/tcp
+ firewalld-cmd --permanent --add-port=40000-50000/tcp
 ```
 Файл .ssh/id_rsa передать на Windows компьютер
-  > usermod -s /bin/false vncproxy
+ > usermod -s /bin/false vncproxy
 
 ### Windows компьютер
 Загрузить и распаковать архив vncdesktop.
@@ -207,41 +207,41 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог c:\vncdesktop\bin\
 
 Для получения hostkey, в командной строке перейти в каталог c:\putty и выполнить
-  > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+ > plink.exe -ssh -N -R 45554:127.0.0.1:5900 -P 22022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
 ```html
-  The server's host key is not cached in the registry. You
-  have no guarantee that the server is the computer you think it is.
-  The server's ssh-ed25519 key fingerprint is:
-  ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
-  Connection abandoned.
+ The server's host key is not cached in the registry. You
+ have no guarantee that the server is the computer you think it is.
+ The server's ssh-ed25519 key fingerprint is:
+ ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
+ Connection abandoned.
 ```
 Строку "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" добавить в файл vncdesktop.ini параметр
-  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
+ > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 В файл vncdesktop.ini параметры
 ```html
-  server=vncproxy.home.lan                                   #определяет прокси сервер
-  sshport=22022                                              #порт на котором работает ssh проки сервера
-  vncport=15900                                              #порт на котором будет работать локальный VNC сервер
-  sshuser=vncproxy                                           #пользователь прокси сервера
-  certificate=vncproxy.ppk                                   #имя файла приватного ключа
-  hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #отпечаток прокси сервера
+ server=vncproxy.home.lan                                   #определяет прокси сервер
+ sshport=22022                                              #порт на котором работает ssh проки сервера
+ vncport=15900                                              #порт на котором будет работать локальный VNC сервер
+ sshuser=vncproxy                                           #пользователь прокси сервера
+ certificate=vncproxy.ppk                                   #имя файла приватного ключа
+ hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #отпечаток прокси сервера
 ```
 Из пакета UltraVNC понадобится setpasswd.exe, winvnc.exe и UltraVNC.ini
 ```html
-  setpasswd.exe - для установки VNC-пароля, когда VNC работает в режиме приложения
-  winvnc.exe - VNC сервер
-  UltraVNC.ini - файл параметров VNC сервера. Обратите внимание, не все параметры определяются этим файлом.
+ setpasswd.exe - для установки VNC-пароля, когда VNC работает в режиме приложения
+ winvnc.exe - VNC сервер
+ UltraVNC.ini - файл параметров VNC сервера. Обратите внимание, не все параметры определяются этим файлом.
 ```
 В файл UltraVNC.ini добавить или изменить параметры
 ```html
-  RemoveWallpaper=1
-  RemoveAero=1
-  AllowLoopback=1
-  DefaultScale=1
-  DisableTrayIcon=1
-  PortNumber=15900
-  noscreensaver=1
+ RemoveWallpaper=1
+ RemoveAero=1
+ AllowLoopback=1
+ DefaultScale=1
+ DisableTrayIcon=1
+ PortNumber=15900
+ noscreensaver=1
 ```
 В SciTE Script Editor открыть файл vncdesktop.au3 нажать F5 - запустится проект.
 
@@ -254,16 +254,16 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 Если удалось подключиться без ошибок, можно собрать проект - нажать F7. Будет создан файл c:\vncdesktop\vncdesktop.exe
 
 В каталоге c:\vncdesktop\build создать архив:
-  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
+ > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
 Скопировать в каталог build 7zSD.sfx
 Создать текстовый файл config.txt в каталоге build
 ```html
-  ;!@Install@!UTF-8!
-  Title="vncdesktop v1.0.0.0"
-  BeginPrompt="Do you want to install/run vncdesktop v1.0.0.0?"
-  RunProgram="vncdesktop.exe"
-  ;!@InstallEnd@!
+ ;!@Install@!UTF-8!
+ Title="vncdesktop v1.0.0.0"
+ BeginPrompt="Do you want to install/run vncdesktop v1.0.0.0?"
+ RunProgram="vncdesktop.exe"
+ ;!@InstallEnd@!
 ```
 Затем в каталоге c:\vncdesktop\build выполнить
  > copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
@@ -281,4 +281,4 @@ VNC запущен в режиме приложения
 ![application mode](pictures/vncdesktop_app.png)
 
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID" без кавычек, например
-  > vncviewer vncproxy.home.lan:45792
+ > vncviewer vncproxy.home.lan:45792
