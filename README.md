@@ -1,10 +1,10 @@
 # vncdesktop
 
-VNC started in service mode
+VNC running in service mode
 
 ![service mode](pictures/vncdesktop_svc.png)
 
-VNC launched in application mode
+VNC running in application mode
 
 ![application mode](pictures/vncdesktop_app.png)
 
