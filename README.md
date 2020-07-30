@@ -13,7 +13,8 @@ VNC launched in application mode
 Provides remote access to the user's desktop for technical support (similar to Teamviewer).
 
 If a VNC server is installed on the user's computer, it will be used with the specified password.
-In this case, vncdesktop will only provide a tunnel to the proxy server.
+In this case, VNC server run in service mode and vncdesktop will only provide a tunnel to the proxy server.
+If a VNC server not installed on the user`s computer, VNC server will run in application mode.
 
 ### Uses
 - PLINK.EXE and PUTTYGEN.EXE from putty package - to create a secure connection to a proxy server and convert a private key.
@@ -147,7 +148,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 Предоставляет удаленный доступ к рабочему столу пользователя для технической поддержки (по аналоиги с Teamviewer).
 
 Если на компьютере пользователя установлен VNC сервер - он будет использоваться с заданным паролем.
-В этом случае vncdesktop обеспечит только тунелем к прокси серверу.
+В этом случае VNC сервер запущен в "service mode" и vncdesktop обеспечит только тунелем к прокси серверу.
+Если на компьютере нет установленного VNC сервера, VNC сервер будет запущен в режиме приложения (app mode).
 
 ### Использует
 - PLINK.EXE и PUTTYGEN.EXE из пакета putty - для создания безопасного подключения к прокси серверу и конвертации приватного ключа.
