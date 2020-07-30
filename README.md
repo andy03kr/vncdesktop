@@ -102,19 +102,13 @@ proxy server fingerprint
 
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
 Add or change parameters to UltraVNC.ini file
-  > RemoveWallpaper = 1
-
-  > RemoveAero = 1
-
-  > AllowLoopback = 1
-
-  > DefaultScale = 1
-
-  > DisableTrayIcon = 1
-
-  > PortNumber = 15900
-
-  > noscreensaver = 1
+    RemoveWallpaper = 1
+    RemoveAero = 1
+    AllowLoopback = 1
+    DefaultScale = 1
+    DisableTrayIcon = 1
+    PortNumber = 15900
+    noscreensaver = 1
 
 Open the vncdesktop.au3 file in SciTE Script Editor and press F5 - the project will start.
 
