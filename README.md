@@ -121,7 +121,8 @@ If a VNC server is installed on a Windows computer, the "Mode" will be "service 
 
 ### Build
 
-If you were able to connect without errors, you can build the project - press F7. The file c:\vncdesktop\vncdesktop.exe will be created
+If you were able to connect without errors, you can build the project - in SciTE Script Editor open vncdesktop.au3 and press F7.
+The file c:\vncdesktop\vncdesktop.exe will be created
 
 Create an archive in the c:\vncdesktop\build directory:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
@@ -259,7 +260,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 
 ### Сборка
 
-Если удалось подключиться без ошибок, можно собрать проект - нажать F7. Будет создан файл c:\vncdesktop\vncdesktop.exe
+Если удалось подключиться без ошибок, можно собрать проект - в редакторе SciTE Script Editor в открытом файле vncdesktop.au3 нажать F7.
+Будет создан файл c:\vncdesktop\vncdesktop.exe
 
 В каталоге c:\vncdesktop\build создать архив:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
