@@ -14,7 +14,7 @@ Provides remote access to the user's desktop for technical support (similar to T
 
 If a VNC server is installed on the user's computer, it will be used with the specified password.
 In this case, VNC server run in service mode and vncdesktop will only provide a tunnel to the proxy server.
-If a VNC server not installed on the user`s computer, VNC server will run in application mode.
+If a VNC server not installed on the user`s computer, VNC server will be run in application mode.
 
 ### Uses
 - PLINK.EXE and PUTTYGEN.EXE from putty package - to create a secure connection to a proxy server and convert a private key.
