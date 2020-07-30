@@ -86,6 +86,11 @@ Parameters in vncdesktop.ini file
     hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"       #proxy server fingerprint
 ```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
+```html
+    setpasswd.exe - define VNC-password, when VNC in application mode
+	winvnc.exe - VNC server
+	UltraVNC.ini - parameters file. Please note that not all parameters are defined by this file.
+```
 Add or change parameters to UltraVNC.ini file
 ```html
   RemoveWallpaper = 1
