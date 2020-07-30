@@ -80,7 +80,7 @@ Parameters in vncdesktop.ini file
 ```html
  server = vncproxy.home.lan                                   #defines a proxy server
  sshport = 22022                                              #the ssh port on proxy server
- vncport = 15900                                              #local VNC port
+ vncport = 15900                                              #VNC port
  sshuser = vncproxy                                           #proxy server user
  certificate = vncproxy.ppk                                   #private key file name
  hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #proxy server fingerprint
@@ -222,7 +222,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ```html
  server=vncproxy.home.lan                                   #определяет прокси сервер
  sshport=22022                                              #порт на котором работает ssh проки сервера
- vncport=15900                                              #порт на котором будет работать локальный VNC сервер
+ vncport=15900                                              #порт на котором будет работать VNC сервер
  sshuser=vncproxy                                           #пользователь прокси сервера
  certificate=vncproxy.ppk                                   #имя файла приватного ключа
  hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #отпечаток прокси сервера
