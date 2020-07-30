@@ -133,7 +133,7 @@ VNC launched in application mode
 
 ![application mode](pictures/vncdesktop_app.png)
 
-On another computer, run vncviewer vncproxy.home.lan: "Your ID" without quotes, for example
+On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, for example
   > vncviewer vncproxy.home.lan:45792
 
 # README.RU
