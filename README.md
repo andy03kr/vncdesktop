@@ -49,8 +49,10 @@ Create user:
 In the /etc/ssh/sshd_config file add:
 ```html
  Port 22022
- GatewayPorts yes
- ForceCommand /bin/false
+
+ Match User vncproxy
+   GatewayPorts yes
+   ForceCommand /bin/false
 ```
 The rest of the /etc/ssh/sshd_config settings at your discretion
 
@@ -184,8 +186,9 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 В файле /etc/ssh/sshd_config добавить:
 ```html
  Port 22022
- GatewayPorts yes
- ForceCommand /bin/false
+ Match User anoncvs
+   GatewayPorts yes
+   ForceCommand /bin/false
 ```
 Остальные настройки /etc/ssh/sshd_config на свое усмотрение
 
