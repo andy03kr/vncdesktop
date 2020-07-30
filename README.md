@@ -85,7 +85,7 @@ To get the hostkey, on the command line, go to the c:\putty directory and run co
  ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
  Connection abandoned.
 ```
-Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop.ini file
+Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the c:\vncdesktop\bin\vncdesktop.ini file
  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 Parameters in vncdesktop.ini file (default)
@@ -99,7 +99,7 @@ Parameters in vncdesktop.ini file (default)
 ```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
 ```html
- setpasswd.exe - define VNC-password, when VNC in application mode
+ setpasswd.exe - define VNC-password, when VNC run in application mode
  winvnc.exe - VNC server
  UltraVNC.ini - parameters file. Please note that not all parameters are defined by this file.
 ```
