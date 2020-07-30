@@ -186,7 +186,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 В файле /etc/ssh/sshd_config добавить:
 ```html
  Port 22022
- Match User anoncvs
+ Match User vncproxy
    GatewayPorts yes
    ForceCommand /bin/false
 ```
