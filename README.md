@@ -223,7 +223,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
  Connection abandoned.
 ```
-Строку "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" добавить в файл vncdesktop.ini параметр
+Строку "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" добавить в файл c:\vncdesktop\bin\vncdesktop.ini параметр
  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 В файл vncdesktop.ini параметры (по-умолчанию)
