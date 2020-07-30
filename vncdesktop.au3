@@ -1,4 +1,6 @@
-;;;;; vncdesktop.au3 ;;;;;
+;;;;; vncdesktop.au3
+;;;;;
+
 #include "main.au3"
 
 #Region ;**** Directives created by AutoIt3Wrapper_GUI ****
