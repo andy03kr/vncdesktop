@@ -222,7 +222,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ```html
  server=vncproxy.home.lan                                   #определяет прокси сервер (NONE)
  sshport=22022                                              #ssh порт проки сервера (2022)
- vncport=15900                                              #vnc порт VNC сервер (15900)
+ vncport=15900                                              #VNC порт (15900)
  sshuser=vncproxy                                           #пользователь прокси сервера (vncproxy)
  certificate=vncproxy.ppk                                   #имя файла приватного ключа (NONE)
  hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #отпечаток прокси сервера (NONE)
