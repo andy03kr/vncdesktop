@@ -139,6 +139,8 @@ Then, in the c:\vncdesktop\build directory, run
 
 c:\vncdesktop\build\vncdesktop.exe will be created.
 
+### Run
+
 Run c:\vncdesktop\build\vncdesktop.exe
 
 On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, for example
@@ -274,6 +276,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  > copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
 Будет создан c:\vncdesktop\build\vncdesktop.exe
+
+### Запуск
 
 Запустите c:\vncdesktop\build\vncdesktop.exe
 
