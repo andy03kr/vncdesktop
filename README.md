@@ -70,7 +70,7 @@ To get the hostkey, on the command line, go to the c:\putty directory and run co
     The server's host key is not cached in the registry. You
     have no guarantee that the server is the computer you think it is.
     The server's ssh-ed25519 key fingerprint is:
-    ssh-ed25519 255 24: b1: c4: 9e: c9: b5: d6: e6: 03: f2: df: 1f: 64: dd: 81: 1d
+    ssh-ed25519 255 24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d
     Connection abandoned.
 ```
 Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop.ini file
@@ -78,12 +78,12 @@ Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop
 
 In vncdesktop.ini file parameters
 ```html
-    server = vncproxy.home.lan                                                       #defines a proxy server
-    sshport = 22022                                                                  #the ssh port on proxy server
-    vncport = 15900                                                                  #local VNC port
-    sshuser = vncproxy                                                               #proxy server user
-    certificate = vncproxy.ppk                                                       #private key file name
-    hostkey = "24: b1: c4: 9e: c9: b5: d6: e6: 03: f2: df: 1f: 64: dd: 81: 1d"       #proxy server fingerprint
+    server = vncproxy.home.lan                                        #defines a proxy server
+    sshport = 22022                                                   #the ssh port on proxy server
+    vncport = 15900                                                   #local VNC port
+    sshuser = vncproxy                                                #proxy server user
+    certificate = vncproxy.ppk                                        #private key file name
+    hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"       #proxy server fingerprint
 ```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
 Add or change parameters to UltraVNC.ini file
