@@ -126,8 +126,7 @@ If you were able to connect without errors, you can build the project - press F7
 Create an archive in the c:\vncdesktop\build directory:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
-Copy file 7zSD.sfx to c:\vncdesktop\build directory
-Create text file config.txt in c:\vncdesktop\build directory
+In c:\vncdesktop\build directory copy file 7zSD.sfx and create config.txt file
 ```html
  ;! @ Install @! UTF-8!
  Title = "vncdesktop v1.0.0.0"
@@ -263,8 +262,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 В каталоге c:\vncdesktop\build создать архив:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
-Скопировать в каталог build 7zSD.sfx
-Создать текстовый файл config.txt в каталоге build
+В каталог c:\vncdesktop\build скопировать 7zSD.sfx и создать файл config.txt
 ```html
  ;!@Install@!UTF-8!
  Title="vncdesktop v1.0.0.0"
