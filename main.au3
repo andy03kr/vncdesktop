@@ -16,13 +16,17 @@ $sBin         = @ScriptDir & "\bin\"
 $sINI_file    = $sBin & "vncdesktop.ini"
 
 If FileExists ( $sINI_file ) Then
-   $sServer   = IniRead ( $sINI_file, "General", "server", "127.0.0.1" )
+   $sServer   = IniRead ( $sINI_file, "General", "server", "" )
    $iSSH_port = IniRead ( $sINI_file, "General", "sshport", "22022" )
    $iVNC_port = IniRead ( $sINI_file, "General", "vncport", "15900" )
    $sSSH_user = IniRead ( $sINI_file, "General", "sshuser", "vncproxy" )
    $sSSH_crt  = IniRead ( $sINI_file, "General", "certificate", "" )
    $sHostKey  = IniRead ( $sINI_file, "General", "hostkey", "" )
 Else
+   Exit
+EndIf
+
+If $sServer = "" Then
    Exit
 EndIf
 
