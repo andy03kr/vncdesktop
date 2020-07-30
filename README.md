@@ -77,24 +77,14 @@ Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop
   > hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 In vncdesktop.ini file parameters
-defines a proxy server
-  > server = vncproxy.home.lan
-
-the ssh port on proxy server
-  > sshport = 22022
-
-local VNC port
-  > vncport = 15900
-
-proxy server user
-  > sshuser = vncproxy
-
-private key file name
-  > certificate = vncproxy.ppk
-
-proxy server fingerprint
-  > hostkey = "24: b1: c4: 9e: c9: b5: d6: e6: 03: f2: df: 1f: 64: dd: 81: 1d"
-
+```html
+    server = vncproxy.home.lan                                                       #defines a proxy server
+    sshport = 22022                                                                  #the ssh port on proxy server
+    vncport = 15900                                                                  #local VNC port
+    sshuser = vncproxy                                                               #proxy server user
+    certificate = vncproxy.ppk                                                       #private key file name
+    hostkey = "24: b1: c4: 9e: c9: b5: d6: e6: 03: f2: df: 1f: 64: dd: 81: 1d"       #proxy server fingerprint
+```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
 Add or change parameters to UltraVNC.ini file
 ```html
@@ -224,24 +214,14 @@ On another computer, run vncviewer vncproxy.home.lan: "Your ID" without quotes, 
   > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d"
 
 В файл vncdesktop.ini параметры
-определяет прокси сервер
-  > server=vncproxy.home.lan
-
-порт на котором работает ssh проки сервера
-  > sshport=22022
-
-порт на котором будет работать локальный VNC сервер
-  > vncport=15900
-
-пользователь прокси сервера
-  > sshuser=vncproxy
-
-имя файла
-  > certificate=vncproxy.ppk
-
-отпечаток прокси сервера
-  > hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"
-
+```html
+    server=vncproxy.home.lan                                        #определяет прокси сервер
+    sshport=22022                                                   #порт на котором работает ssh проки сервера
+    vncport=15900                                                   #порт на котором будет работать локальный VNC сервер
+    sshuser=vncproxy                                                #пользователь прокси сервера
+    certificate=vncproxy.ppk                                        #имя файла приватного ключа
+    hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"       #отпечаток прокси сервера
+```
 Из пакета UltraVNC понадобится setpasswd.exe, winvnc.exe и UltraVNC.ini
 В файл UltraVNC.ini добавить или изменить параметры
 ```html
