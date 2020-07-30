@@ -78,7 +78,7 @@ Add the line "24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d" to the vncdesktop
 
 Parameters in vncdesktop.ini file (default)
 ```html
- server = vncproxy.home.lan                                   #defines a proxy server (127.0.0.1)
+ server = vncproxy.home.lan                                   #defines a proxy server (NONE)
  sshport = 22022                                              #the ssh port on proxy server (22022)
  vncport = 15900                                              #VNC port (15900)
  sshuser = vncproxy                                           #proxy server user (vncproxy)
@@ -220,7 +220,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 
 В файл vncdesktop.ini параметры (по-умолчанию)
 ```html
- server=vncproxy.home.lan                                   #определяет прокси сервер (127.0.0.1)
+ server=vncproxy.home.lan                                   #определяет прокси сервер (NONE)
  sshport=22022                                              #ssh порт проки сервера (2022)
  vncport=15900                                              #vnc порт VNC сервер (15900)
  sshuser=vncproxy                                           #пользователь прокси сервера (vncproxy)
