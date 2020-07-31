@@ -10,7 +10,7 @@ VNC running in application mode
 
 # README.EN
 ## About vncdesktop
-Provides remote access to the user's desktop for technical support (similar to Teamviewer).
+Provides remote access to the user's desktop for technical support when one or both behinde NAT.
 
 If a VNC server is installed on the user's computer, it will be used with the specified password.
 In this case, VNC server run in service mode and vncdesktop will only provide a tunnel to the proxy server.
@@ -149,7 +149,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 
 # README.RU
 ## О vncdesktop
-Предоставляет удаленный доступ к рабочему столу пользователя для технической поддержки (по аналоиги с Teamviewer).
+Предоставляет удаленный доступ к рабочему столу пользователя для технической поддержки когда один или оба находятся за NAT.
 
 Если на компьютере пользователя установлен VNC сервер - он будет использоваться с заданным паролем.
 В этом случае VNC сервер запущен в "service mode" и vncdesktop обеспечит только тунелем к прокси серверу.
