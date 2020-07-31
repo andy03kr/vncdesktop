@@ -1,5 +1,5 @@
 ;;;;; main.au3
-;;;;; plink.exe -ssh -N -R 45554:127.0.0.1:5900 -hostkey 24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d -P 10022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
+;;;;; plink.exe -ssh -N -R 45554:127.0.0.1:5900 -hostkey 24:b1:c4:9e:c9:b5:d6:e6:03:12:df:1f:64:dd:81:1d -C -P 10022 -i c:\vncdesktop\bin\vncproxy.ppk -l vncproxy -batch vncproxy.home.lan
 ;;;;; copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 ;;;;;
 
@@ -101,7 +101,7 @@ Func ReNewPARAM ( $sServer, $iSSH_port )
    If $iVNC_exists == 0 Then $sGUI_PASS = Random ( @MSEC + 40000, 50000, 1 )
    Sleep ( Random ( 0, 1000, 1 ))
    $sGUI_ID = Random ( @MSEC + 40000, 50000, 1 )
-   $sCMD = $sBin & "plink.exe -ssh -N -R " & $sGUI_ID & ":127.0.0.1:" & $iVNC_port & " -hostkey " & $sHostKey & " -P " & $iSSH_port & " -i " & $sSSH_crt & " -l " & $sSSH_user & " -batch " & $sServer
+   $sCMD = $sBin & "plink.exe -ssh -N -R " & $sGUI_ID & ":127.0.0.1:" & $iVNC_port & " -hostkey " & $sHostKey & " -C -P " & $iSSH_port & " -i " & $sSSH_crt & " -l " & $sSSH_user & " -batch " & $sServer
    Return 1
 EndFunc
 
