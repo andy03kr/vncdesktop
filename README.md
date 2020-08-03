@@ -127,7 +127,7 @@ The file c:\vncdesktop\vncdesktop.exe will be created
 Create an archive in the c:\vncdesktop\build directory:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
-Into c:\vncdesktop\build directory copy file 7zSD.sfx and create config.txt file
+Copy 7zSD.sfx file in c:\vncdesktop\build directory and create config.txt file
 ```html
  ;! @ Install @! UTF-8!
  Title = "vncdesktop v1.0.0.0"
