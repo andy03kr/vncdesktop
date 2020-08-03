@@ -10,20 +10,52 @@
 
 Opt ( "TrayIconHide", 1 )
 
-If ReNewPARAM ( $sServer, $iSSH_port ) = 1 Then
-   $iConn = ConnectSRV ( $sServer, $iSSH_port )
-   If $iConn == 0 Then
-	  $sSRV_Stat = "Not Connected"
-   ElseIf $iConn == 1 Then
-	  $sSRV_Stat = "winvnc.exe NOT started"
-   ElseIf $iConn == 2 Then
-	  $sSRV_Stat = "plink.exe NOT started"
-   Else
-	  $sSRV_Stat == "Connected"
-   EndIf
-Else
-   $sSRV_Stat == "Unknown"
-EndIf
+$retStat = ServerStat ( $sServer, $iSSH_port )
+Switch $retStat
+   Case -5
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Fail TCP connection" )
+   Case -2
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Not connected" )
+   Case -1
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Wrong server name " & $sServer )
+   Case 0
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Socket error" )
+   Case 1
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "IP-address is incorrect = " & $sIPAddress )
+   Case 2
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
+   Case 5
+	  ReNewPARAM ( $sServer, $iSSH_port )
+	  GUICtrlSetData ( $idInputID, $sGUI_ID )
+	  GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
+	  KillTools ()
+	  $iConn = ConnectSRV ( $sServer, $iSSH_port )
+	  If $iConn == 1 Then
+		 GUICtrlSetData ( $idLabelSTAT, "winvnc.exe NOT started" )
+	  ElseIf $iConn == 2 Then
+		 GUICtrlSetData ( $idLabelSTAT, "plink.exe NOT started" )
+	  ElseIf $iConn == 5 Then
+		 GUICtrlSetData ( $idLabelSTAT, "Connected" )
+	  Else
+		 GUICtrlSetData ( $idLabelSTAT, "Unknown" )
+	  EndIf
+   Case Else
+	  GUICtrlSetData ( $idInputID, "" )
+	  GUICtrlSetData ( $idInputPASS, "" )
+	  GUICtrlSetData ( $idLabelSTAT, "Windows Sockets Error = " & $retStat )
+EndSwitch
 
 #Region ### START Koda GUI section ### Form=
 $_1 = GUICreate ( "VNC desktop", 618, 368, 193, 124 )
@@ -60,7 +92,7 @@ While 1
 		Case $idButtConn
 			$idInput = GUICtrlRead ( $idInputSRV )
 			$pos = StringInStr ( $idInput, ":" )
-			If $pos = 0 Then
+			If $pos == 0 Then
 				$sServer = $idInput
 			Else
 				$iSSH_port = StringTrimLeft ( $idInput, $pos )
@@ -68,48 +100,49 @@ While 1
 			EndIf
 			$retStat = ServerStat ( $sServer, $iSSH_port )
 			Switch $retStat
-				Case -5
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Fail TCP connection" )
-				Case -2
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Not connected" )
-				Case -1
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Wrong server name " & $sServer )
-				Case 0
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Socket error" )
-				Case 1
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "IP-address is incorrect = " & $sIPAddress )
-				Case 2
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
-				Case 5
-					ReNewPARAM ( $sServer, $iSSH_port )
-					GUICtrlSetData ( $idInputID, $sGUI_ID )
-					GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
-					$iConn = ConnectSRV ( $sServer, $iSSH_port )
-					If $iConn = 0 Then
-						GUICtrlSetData ( $idLabelSTAT, "Not Connected" )
-					ElseIf $iConn = 1 Then
-						GUICtrlSetData ( $idLabelSTAT, "winvnc.exe NOT started" )
-					ElseIf $iConn = 2 Then
-						GUICtrlSetData ( $idLabelSTAT, "plink.exe NOT started" )
-					Else
-						GUICtrlSetData ( $idLabelSTAT, "Connected" )
-					EndIf
-				Case Else
-					GUICtrlSetData ( $idInputID, "" )
-					GUICtrlSetData ( $idInputPASS, "" )
-					GUICtrlSetData ( $idLabelSTAT, "Windows Sockets Error = " & $retStat )
+			   Case -5
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Fail TCP connection" )
+			   Case -2
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Not connected" )
+			   Case -1
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Wrong server name " & $sServer )
+			   Case 0
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Socket error" )
+			   Case 1
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "IP-address is incorrect = " & $sIPAddress )
+			   Case 2
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
+			   Case 5
+				  ReNewPARAM ( $sServer, $iSSH_port )
+				  GUICtrlSetData ( $idInputID, $sGUI_ID )
+				  GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
+				  KillTools ()
+				  $iConn = ConnectSRV ( $sServer, $iSSH_port )
+				  If $iConn == 1 Then
+					 GUICtrlSetData ( $idLabelSTAT, "winvnc.exe NOT started" )
+				  ElseIf $iConn == 2 Then
+					 GUICtrlSetData ( $idLabelSTAT, "plink.exe NOT started" )
+				  ElseIf $iConn == 5 Then
+					 GUICtrlSetData ( $idLabelSTAT, "Connected" )
+				  Else
+					 GUICtrlSetData ( $idLabelSTAT, "Unknown" )
+				  EndIf
+			   Case Else
+				  GUICtrlSetData ( $idInputID, "" )
+				  GUICtrlSetData ( $idInputPASS, "" )
+				  GUICtrlSetData ( $idLabelSTAT, "Windows Sockets Error = " & $retStat )
 			EndSwitch
 	EndSwitch
 WEnd
