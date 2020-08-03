@@ -81,11 +81,10 @@ Next
 ; -5 fail TCP connection
 ; -2 not connected
 ; -1 server name is incorrect
-; 0 wrong server name
-; 1 IP-addr is incorrect
+; 1 IPAddr is incorrect
 ; 2 port is incorrect
 ; 5 connection established
-; or Windows Sockets Error https://docs.microsoft.com/ru-ru/windows/desktop/WinSock/windows-sockets-error-codes-2
+; 10060 Connection timed out
 Func ServerStat ( $sServer, $iSSH_port )
    Local $idSock = 0
    Local $sIPAddress = ""
@@ -93,18 +92,22 @@ Func ServerStat ( $sServer, $iSSH_port )
    If $sServer == "" Or $sServer == "127.0.0.1" Then Return -1
    If $iSSH_port == "" Or $iSSH_port <= 0 Or $iSSH_port >= 65536 Then Return 2
    If TCPStartup () == 0 Then Return -5
+   ; Windows Sockets Error https://docs.microsoft.com/ru-ru/windows/desktop/WinSock/windows-sockets-error-codes-2
    $sIPAddress = TCPNameToIP ( $sServer )
    If $sIPAddress == "" Then Return @error
    $idSock = TCPConnect ( $sIPAddress, $iSSH_port )
-   If @error Then
-	  Return @error
+   If $idSock <= 0 Then
+	  ; @error:	-2 not connected.
+	  ;			1 IPAddr is incorrect.
+	  ;			2 port is incorrect.
+	  ; 		10060 Connection timed out.
+ 	  Return @error
    EndIf
    TCPCloseSocket ( $idSock )
    Return 5
 EndFunc
 
 Func ReNewPARAM ( $sServer, $iSSH_port )
-   If $sServer = "" Or $sServer = "127.0.0.1" Then Return 0
    If $iVNC_exists == 0 Then $sGUI_PASS = Random ( @MSEC + 40000, 50000, 1 )
    Sleep ( Random ( 0, 1000, 1 ))
    $sGUI_ID = Random ( @MSEC + 40000, 50000, 1 )
@@ -113,13 +116,10 @@ Func ReNewPARAM ( $sServer, $iSSH_port )
 EndFunc
 
 ; Func ConnectSRV return:
-; -1 server name is incorrect
 ; 1 error while run winvnc
 ; 2 error while run plink
 ; 5 connection established
 Func ConnectSRV ( $sServer, $iSSH_port )
-   If $sServer = "" Or $sServer = "127.0.0.1" Then Return -1
-   KillTools ()
    If $iVNC_exists == 0 Then
 	  RunWait ( $sBin & "setpasswd.exe " & $sGUI_PASS, "", @SW_HIDE )
 	  $iVNC_pid = Run ( $sBin & "winvnc.exe -run -settings UltraVNC.ini", "", @SW_HIDE )
