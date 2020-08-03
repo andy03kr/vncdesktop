@@ -31,7 +31,7 @@ If a VNC server not installed on the user`s computer, VNC server will be run in 
 - Package [LZMA SDK](https://www.7-zip.org/sdk.html)
 
 ## Installation
-This example will use:
+In this example will use:
 - linux server name - vncproxy.home.lan
 - ssh port - 22022
 - port range for VNC connections - 40000:50000
