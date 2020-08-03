@@ -119,6 +119,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID"
 
 If a VNC server is installed on a Windows computer, the "Mode" will be "service mode" and the password specified during installation.
 
+If a VNC server not installed on a Windows computer, the "Mode" will be "app mode" and the password will be defined in "Your Password :".
+
 ### Build
 
 If you were able to connect without errors, you can build the project - in SciTE Script Editor open vncdesktop.au3 and press F7.
@@ -259,6 +261,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 На другом компьютере запустить vncviewer vncproxy.home.lan:"Your ID"
 
 Если на Windows компьютере установлен VNC сервер, режим "Mode" будет "service mode" и пароль будет использоваться заданный при установке.
+
+Если на Windows компьютере не установлен VNC сервер, режим "Mode" будет "app mode" и пароль будет указан в "Your Password :".
 
 ### Сборка
 
