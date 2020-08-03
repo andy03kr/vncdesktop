@@ -26,7 +26,7 @@ Else
 EndIf
 
 #Region ### START Koda GUI section ### Form=
-$_1 = GUICreate ( "vncdesktop", 618, 368, 193, 124 )
+$_1 = GUICreate ( "VNC desktop", 618, 368, 193, 124 )
 GUISetFont ( 16, 400, 0, "MS Sans Serif" )
 $Group = GUICtrlCreateGroup ( "Quick Support", 16, 32, 585, 321 )
 
