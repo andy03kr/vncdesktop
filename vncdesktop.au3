@@ -12,17 +12,17 @@ Opt ( "TrayIconHide", 1 )
 
 If ReNewPARAM ( $sServer, $iSSH_port ) = 1 Then
    $iConn = ConnectSRV ( $sServer, $iSSH_port )
-   If $iConn = 0 Then
+   If $iConn == 0 Then
 	  $sSRV_Stat = "Not Connected"
-   ElseIf $iConn = 1 Then
+   ElseIf $iConn == 1 Then
 	  $sSRV_Stat = "winvnc.exe NOT started"
-   ElseIf $iConn = 2 Then
+   ElseIf $iConn == 2 Then
 	  $sSRV_Stat = "plink.exe NOT started"
    Else
-	  $sSRV_Stat = "Connected"
+	  $sSRV_Stat == "Connected"
    EndIf
 Else
-   $sSRV_Stat = "Unknown"
+   $sSRV_Stat == "Unknown"
 EndIf
 
 #Region ### START Koda GUI section ### Form=
