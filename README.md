@@ -272,7 +272,9 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 В каталоге c:\vncdesktop\build создать архив:
  > "c:\Program Files\7-Zip\7z.exe" a -r c:\vncdesktop\build\vncdesktop.7z c:\vncdesktop\bin c:\vncdesktop\vncdesktop.exe
 
-В каталог c:\vncdesktop\build скопировать 7zSD.sfx и создать файл config.txt
+В каталог c:\vncdesktop\build скопировать 7zSD.sfx
+
+В каталоге c:\vncdesktop\build создать файл config.txt
 ```html
  ;!@Install@!UTF-8!
  Title="vncdesktop v1.0.0.0"
