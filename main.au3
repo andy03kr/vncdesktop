@@ -7,8 +7,9 @@
 #include <ButtonConstants.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
-#include <StaticConstants.au3>
+;#include <StaticConstants.au3>
 #include <WindowsConstants.au3>
+#include <MsgBoxConstants.au3>
 
 Opt ( "TrayIconHide", 1 )
 
@@ -28,19 +29,19 @@ Else
    Exit
 EndIf
 
-If $sServer = "" Then
+If $sServer == "" Then
    MsgBox ( $MB_OK, "Error", "Server not defined in vncdesktop.ini" )
    Exit
 EndIf
 
-If $sSSH_crt = "" Then
+If $sSSH_crt == "" Then
    MsgBox ( $MB_OK, "Error", "Public key file not defined in vncdesktop.ini" )
    Exit
 Else
    $sSSH_crt = $sBin & $sSSH_crt
 EndIf
 
-If $sHostKey = "" Then
+If $sHostKey == "" Then
    MsgBox ( $MB_OK, "Error", "Proxy server fingerprint not defined in vncdesktop.ini" )
    Exit
 EndIf
@@ -89,11 +90,11 @@ Func ServerStat ( $sServer, $iSSH_port )
    Local $idSock = 0
    Local $sIPAddress = ""
 
-   If $sServer = "" Or $sServer = "127.0.0.1" Then Return -1
-   If $iSSH_port = "" Or $iSSH_port < 0 Or $iSSH_port > 65536 Then Return 2
-   If TCPStartup () = 0 Then Return -5
+   If $sServer == "" Or $sServer == "127.0.0.1" Then Return -1
+   If $iSSH_port == "" Or $iSSH_port <= 0 Or $iSSH_port >= 65536 Then Return 2
+   If TCPStartup () == 0 Then Return -5
    $sIPAddress = TCPNameToIP ( $sServer )
-   If $sIPAddress = "" Then Return @error
+   If $sIPAddress == "" Then Return @error
    $idSock = TCPConnect ( $sIPAddress, $iSSH_port )
    If @error Then
 	  Return @error
