@@ -15,6 +15,7 @@ Opt ( "TrayIconHide", 1 )
 $sBin         = @ScriptDir & "\bin\"
 $sINI_file    = $sBin & "vncdesktop.ini"
 
+; read vncdesktop.ini
 If FileExists ( $sINI_file ) Then
    $sServer   = IniRead ( $sINI_file, "General", "server", "" )
    $iSSH_port = IniRead ( $sINI_file, "General", "sshport", "22022" )
@@ -23,20 +24,24 @@ If FileExists ( $sINI_file ) Then
    $sSSH_crt  = IniRead ( $sINI_file, "General", "certificate", "" )
    $sHostKey  = IniRead ( $sINI_file, "General", "hostkey", "" )
 Else
+   MsgBox ( $MB_OK, "Error", "File vncdesktop.ini not found" )
    Exit
 EndIf
 
 If $sServer = "" Then
+   MsgBox ( $MB_OK, "Error", "Server not defined in vncdesktop.ini" )
    Exit
 EndIf
 
 If $sSSH_crt = "" Then
+   MsgBox ( $MB_OK, "Error", "Public key file not defined in vncdesktop.ini" )
    Exit
 Else
    $sSSH_crt = $sBin & $sSSH_crt
 EndIf
 
 If $sHostKey = "" Then
+   MsgBox ( $MB_OK, "Error", "Proxy server fingerprint not defined in vncdesktop.ini" )
    Exit
 EndIf
 
@@ -59,6 +64,7 @@ $idButtConn   = ""
 $idInputID    = ""
 $idInputPASS  = ""
 
+; find vnc process
 $aProcessList = ProcessList ()
 For $i = 1 To $aProcessList[0][0]
    If ( StringInStr ( $aProcessList[$i][0], "vnc" ) > 0 ) Or ( StringInStr ( $aProcessList[$i][0], "tvns" ) > 0 ) Then
@@ -124,7 +130,7 @@ Func ConnectSRV ( $sServer, $iSSH_port )
 EndFunc
 
 Func KillTools ()
-   If $iVNC_exists == 0 Then
+   If $iVNC_exists == 0 And $iVNC_pid > 0 Then
 	  RunWait ( @ComSpec & " /c taskkill /F /T /PID " & $iVNC_pid, "", @SW_HIDE )
    EndIf
    If $iPLINK_pid > 0 Then
