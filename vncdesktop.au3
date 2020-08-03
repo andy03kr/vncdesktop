@@ -54,18 +54,16 @@ Switch $retStat
    Case Else
 	  GUICtrlSetData ( $idInputID, "" )
 	  GUICtrlSetData ( $idInputPASS, "" )
-	  GUICtrlSetData ( $idLabelSTAT, "Windows Sockets Error = " & $retStat )
+	  GUICtrlSetData ( $idLabelSTAT, "Sockets Error = " & $retStat )
 EndSwitch
 
 #Region ### START Koda GUI section ### Form=
-$_1 = GUICreate ( "VNC desktop", 618, 368, 193, 124 )
+$_1 = GUICreate ( "VNC desktop", 500, 368, 193, 124 )
 GUISetFont ( 16, 400, 0, "MS Sans Serif" )
-$Group = GUICtrlCreateGroup ( "Quick Support", 16, 32, 585, 321 )
+$Group = GUICtrlCreateGroup ( "Quick Support", 15, 30, 470, 320 )
 
 GUICtrlCreateLabel ( "Server :", 40, 70, 120, 29 )
-$idInputSRV = GUICtrlCreateInput ( $sServer & ":" & $iSSH_port, 185, 70, 255, 33, $GUI_SS_DEFAULT_INPUT )
-$idInput = GUICtrlRead ( $idInputSRV )
-$idButtConn = GUICtrlCreateButton ( "reConnect", 455, 70, 130, 33 )
+$idInputSRV = GUICtrlCreateInput ( $sServer & ":" & $iSSH_port, 185, 70, 255, 33, BitOR ( $GUI_SS_DEFAULT_INPUT,$ES_READONLY ))
 
 GUICtrlCreateLabel ( "Your ID :", 40, 120, 80, 29 )
 $idInputID = GUICtrlCreateInput ( $sGUI_ID, 288, 120, 145, 33, BitOR ( $GUI_SS_DEFAULT_INPUT,$ES_READONLY ))
@@ -84,65 +82,10 @@ GUISetState ( @SW_SHOW )
 #EndRegion ### END Koda GUI section ###
 
 While 1
-	$nMsg = GUIGetMsg ()
-	Switch $nMsg
-		Case $GUI_EVENT_CLOSE
-			KillTools ()
-			Exit
-		Case $idButtConn
-			$idInput = GUICtrlRead ( $idInputSRV )
-			$pos = StringInStr ( $idInput, ":" )
-			If $pos == 0 Then
-				$sServer = $idInput
-			Else
-				$iSSH_port = StringTrimLeft ( $idInput, $pos )
-				$sServer = StringTrimRight ( $idInput, StringLen ( $idInput ) - $pos + 1 )
-			EndIf
-			$retStat = ServerStat ( $sServer, $iSSH_port )
-			Switch $retStat
-			   Case -5
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Fail TCP connection" )
-			   Case -2
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Not connected" )
-			   Case -1
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Wrong server name " & $sServer )
-			   Case 0
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Socket error" )
-			   Case 1
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "IP-address is incorrect = " & $sIPAddress )
-			   Case 2
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
-			   Case 5
-				  ReNewPARAM ( $sServer, $iSSH_port )
-				  GUICtrlSetData ( $idInputID, $sGUI_ID )
-				  GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
-				  KillTools ()
-				  $iConn = ConnectSRV ( $sServer, $iSSH_port )
-				  If $iConn == 1 Then
-					 GUICtrlSetData ( $idLabelSTAT, "winvnc.exe NOT started" )
-				  ElseIf $iConn == 2 Then
-					 GUICtrlSetData ( $idLabelSTAT, "plink.exe NOT started" )
-				  ElseIf $iConn == 5 Then
-					 GUICtrlSetData ( $idLabelSTAT, "Connected" )
-				  Else
-					 GUICtrlSetData ( $idLabelSTAT, "Unknown" )
-				  EndIf
-			   Case Else
-				  GUICtrlSetData ( $idInputID, "" )
-				  GUICtrlSetData ( $idInputPASS, "" )
-				  GUICtrlSetData ( $idLabelSTAT, "Windows Sockets Error = " & $retStat )
-			EndSwitch
-	EndSwitch
+   $nMsg = GUIGetMsg ()
+   Switch $nMsg
+	  Case $GUI_EVENT_CLOSE
+		 KillTools ()
+		 Exit
+   EndSwitch
 WEnd
