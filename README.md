@@ -20,7 +20,7 @@ If a VNC server not installed on the user`s computer, VNC server will be run in 
 - PLINK.EXE and PUTTYGEN.EXE from putty package - to create a secure connection to a proxy server and convert a private key.
 - setpasswd.exe and winvnc.exe from UltraVNC package - for access to the desktop.
 - 7zSD.sfx from the LZMA SDK package - to create an SFX archive.
-- AutoIT - for test run and build.
+- AutoIT - for run test and build.
 
 ## Requirements
 - Linux computer with a public address
