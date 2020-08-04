@@ -10,7 +10,7 @@ VNC running in application mode
 
 # README.EN
 ## About vncdesktop
-Provides remote access to the user's desktop for technical support when one or both behinde NAT.
+VNC desktop provides remote access to the user's desktop for technical support when one or both behinde NAT.
 
 If a VNC server is installed on the user's computer, it will be used with the specified password.
 In this case, VNC server run in service mode and vncdesktop will only provide a tunnel to the proxy server.
