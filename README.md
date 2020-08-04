@@ -98,6 +98,7 @@ Parameters in vncdesktop.ini file (default)
  hostkey = "24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #proxy server fingerprint (NONE)
 ```
 From the UltraVNC package you will need setpasswd.exe, winvnc.exe and UltraVNC.ini
+Copy plink.exe, setpasswd.exe, winvnc.exe and UltraVNC.ini into c:\vncdesktop\bin\ directory
 ```html
  setpasswd.exe - define VNC-password, when VNC run in application mode
  winvnc.exe - VNC server
@@ -215,7 +216,9 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ### Windows компьютер
 Загрузить и распаковать архив vncdesktop.
 Установить AutoIT.
-Разархивировать архив putty в c:\putty и выполнить PUTTYGEN.EXE
+Разархивировать архив putty в c:\putty
+
+Выполнить PUTTYGEN.EXE
 
 В меню "Conversions" - "Import Key" импортировать ключ id_rsa - "Save private key" - сохранить как vncproxy.ppk в каталог c:\vncdesktop\bin\
 
@@ -241,6 +244,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  hostkey="24:b1:c4:9e:c9:b5:d6:e6:03:f2:df:1f:64:dd:81:1d"  #отпечаток прокси сервера (NONE)
 ```
 Из пакета UltraVNC понадобится setpasswd.exe, winvnc.exe и UltraVNC.ini
+Скопировать plink.exe, setpasswd.exe, winvnc.exe и UltraVNC.ini в каталог c:\vncdesktop\bin\
 ```html
  setpasswd.exe - для установки VNC-пароля, когда VNC работает в режиме приложения
  winvnc.exe - VNC сервер
