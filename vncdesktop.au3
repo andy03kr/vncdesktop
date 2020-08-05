@@ -61,9 +61,6 @@ Switch $retStat
 	  GUICtrlSetData ( $idInputPASS, "" )
 	  GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
    Case 5
-	  ReNewPARAM ( $sServer, $iSSH_port )
-	  GUICtrlSetData ( $idInputID, $sGUI_ID )
-	  GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
 	  KillTools ()
 	  $iConn = ConnectSRV ( $sServer, $iSSH_port )
 	  If $iConn == 1 Then
@@ -75,6 +72,8 @@ Switch $retStat
 	  Else
 		 GUICtrlSetData ( $idLabelSTAT, "Unknown" )
 	  EndIf
+	  GUICtrlSetData ( $idInputID, $sGUI_ID )
+	  GUICtrlSetData ( $idInputPASS, $sGUI_PASS )
    Case Else
 	  GUICtrlSetData ( $idInputID, "" )
 	  GUICtrlSetData ( $idInputPASS, "" )
