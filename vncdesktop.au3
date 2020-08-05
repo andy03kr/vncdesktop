@@ -61,7 +61,6 @@ Switch $retStat
 	  GUICtrlSetData ( $idInputPASS, "" )
 	  GUICtrlSetData ( $idLabelSTAT, "Port is incorrect" )
    Case 5
-	  KillTools ()
 	  $iConn = ConnectSRV ( $sServer, $iSSH_port )
 	  If $iConn == 1 Then
 		 GUICtrlSetData ( $idLabelSTAT, "winvnc.exe NOT started" )
