@@ -137,7 +137,7 @@ Create config.txt file in c:\vncdesktop\build directory.
 ```html
  ;! @ Install @! UTF-8!
  Title = "vncdesktop v1.0.0.0"
- BeginPrompt = "Do you want to install/run vncdesktop v1.0.0.0?"
+ BeginPrompt = "Do you want to run vncdesktop v1.0.0.0?"
  RunProgram = "vncdesktop.exe"
  ;! @ InstallEnd @!
 ```
@@ -284,7 +284,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ```html
  ;!@Install@!UTF-8!
  Title="vncdesktop v1.0.0.0"
- BeginPrompt="Do you want to install/run vncdesktop v1.0.0.0?"
+ BeginPrompt="Do you want to run vncdesktop v1.0.0.0?"
  RunProgram="vncdesktop.exe"
  ;!@InstallEnd@!
 ```
