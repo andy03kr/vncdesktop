@@ -122,12 +122,3 @@ Func ConnectSRV ( $sServer, $iSSH_port )
    If $iPLINK_pid = 0 Then Return 2
    Return 5
 EndFunc
-
-Func KillTools ()
-   If $iVNC_exists == 0 And $iVNC_pid > 0 Then
-	  RunWait ( @ComSpec & " /c taskkill /F /T /PID " & $iVNC_pid, "", @SW_HIDE )
-   EndIf
-   If $iPLINK_pid > 0 Then
-	  RunWait ( @ComSpec & " /c taskkill /F /T /PID " & $iPLINK_pid, "", @SW_HIDE )
-   EndIf
-EndFunc
