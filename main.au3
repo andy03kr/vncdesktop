@@ -105,24 +105,19 @@ Func ServerStat ( $sServer, $iSSH_port )
    Return 5
 EndFunc
 
-Func ReNewPARAM ( $sServer, $iSSH_port )
-   If $iVNC_exists == 0 Then $sGUI_PASS = Random ( @MSEC + 40000, 50000, 1 )
-   Sleep ( Random ( 0, 1000, 1 ))
-   $sGUI_ID = Random ( @MSEC + 40000, 50000, 1 )
-   $sCMD = $sBin & "plink.exe -ssh -N -R " & $sGUI_ID & ":127.0.0.1:" & $iVNC_port & " -hostkey " & $sHostKey & " -C -P " & $iSSH_port & " -i " & $sSSH_crt & " -l " & $sSSH_user & " -batch " & $sServer
-   Return 1
-EndFunc
-
 ; Func ConnectSRV return:
 ; 1 error while run winvnc
 ; 2 error while run plink
 ; 5 connection established
 Func ConnectSRV ( $sServer, $iSSH_port )
    If $iVNC_exists == 0 Then
+	  $sGUI_PASS = Random ( @MSEC + 40000, 50000, 1 )
 	  RunWait ( $sBin & "setpasswd.exe " & $sGUI_PASS, "", @SW_HIDE )
 	  $iVNC_pid = Run ( $sBin & "winvnc.exe -run -settings UltraVNC.ini", "", @SW_HIDE )
 	  If $iVNC_pid = 0 Then Return 1
    EndIf
+   $sGUI_ID = Random ( @MSEC + 40000, 50000, 1 )
+   $sCMD = $sBin & "plink.exe -ssh -N -R " & $sGUI_ID & ":127.0.0.1:" & $iVNC_port & " -hostkey " & $sHostKey & " -C -P " & $iSSH_port & " -i " & $sSSH_crt & " -l " & $sSSH_user & " -batch " & $sServer
    $iPLINK_pid = Run ( $sCMD, "", @SW_HIDE )
    If $iPLINK_pid = 0 Then Return 2
    Return 5
