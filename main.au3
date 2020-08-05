@@ -59,7 +59,6 @@ $idLabelSTAT  = ""
 $idLabelMODE  = ""
 $idInputSRV   = ""
 $idInput      = ""
-$idButtConn   = ""
 $idInputID    = ""
 $idInputPASS  = ""
 
