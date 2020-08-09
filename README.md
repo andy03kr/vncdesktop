@@ -45,6 +45,7 @@ Create user:
  cd /home/vncproxy
  ssh_keygen
  cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
+ chmod 0400 /home/vncproxy/.ssh/authorized_keys
 ```
 In the /etc/ssh/sshd_config file add:
 ```html
@@ -190,6 +191,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  cd /home/vncproxy
  ssh_keygen
  cat .ssh/id_rsa.pub >> /home/vncproxy/.ssh/authorized_keys
+ chmod 0400 /home/vncproxy/.ssh/authorized_keys
 ```
 В файле /etc/ssh/sshd_config добавить:
 ```html
