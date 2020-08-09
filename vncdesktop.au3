@@ -1,5 +1,5 @@
-;;;;; vncdesktop.au3
-;;;;;
+; vncdesktop.au3 Created by andy03kr
+;
 
 #include "main.au3"
 
