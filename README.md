@@ -1,6 +1,4 @@
 # vncdesktop
-![en description](https://github.com/andy03kr/vncdesktop#readmeen)
-![ru description](https://github.com/andy03kr/vncdesktop#readmeru)
 
 VNC running in service mode
 
