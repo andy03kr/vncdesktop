@@ -142,6 +142,8 @@ Create config.txt file in c:\vncdesktop\build directory.
  RunProgram = "vncdesktop.exe"
  ;! @ InstallEnd @!
 ```
+To suppress the request "Do you want to run vncdesktop v1.0.0.0?" comment this line
+
 Then, in the c:\vncdesktop\build directory, run
  > copy / b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
@@ -290,6 +292,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  RunProgram="vncdesktop.exe"
  ;!@InstallEnd@!
 ```
+Чтобы подавить запрос "Do you want to run vncdesktop v1.0.0.0?" закомментируйте эту строку
+
 Затем в каталоге c:\vncdesktop\build выполнить
  > copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
