@@ -41,6 +41,7 @@ In this example will use:
 Create user:
 ```html
  useradd -d /home/vncproxy -s /bin/bash vncproxy
+ passwd vncproxy
  su vncproxy
  cd /home/vncproxy
  ssh_keygen
@@ -52,6 +53,8 @@ In the /etc/ssh/sshd_config file add:
  Port 22022
 
  Match User vncproxy
+   PasswordAuthentication no
+   PermitEmptyPassword no
    GatewayPorts yes
    ForceCommand /bin/false
 ```
@@ -189,6 +192,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 Создать пользователя:
 ```html
  useradd -d /home/vncproxy -s /bin/bash vncproxy
+ passwd vncproxy
  su vncproxy
  cd /home/vncproxy
  ssh_keygen
@@ -200,6 +204,8 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
  Port 22022
 
  Match User vncproxy
+   PasswordAuthentication no
+   PermitEmptyPassword no
    GatewayPorts yes
    ForceCommand /bin/false
 ```
