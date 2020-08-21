@@ -130,6 +130,7 @@ If a VNC server not installed on a Windows computer, the "Mode" will be "app mod
 ### Build
 
 If you were able to connect without errors, you can build the project - in SciTE Script Editor open vncdesktop.au3 and press F7.
+Or use C:\Program Files (x86)\AutoIt3\Aut2Exe tool for convert vncdesktop.au3 to vncdesktop.exe and set your own icon.
 The file c:\vncdesktop\vncdesktop.exe will be created
 
 Create an archive in the c:\vncdesktop\build directory:
@@ -281,6 +282,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 ### Сборка
 
 Если удалось подключиться без ошибок, можно собрать проект - в редакторе SciTE Script Editor в открытом файле vncdesktop.au3 нажать F7.
+Или использовать инструмент C:\Program Files (x86)\AutoIt3\Aut2Exe для конвертирования vncdesktop.au3 в vncdesktop.exe и установки собственного значка.
 Будет создан файл c:\vncdesktop\vncdesktop.exe
 
 В каталоге c:\vncdesktop\build создать архив:
