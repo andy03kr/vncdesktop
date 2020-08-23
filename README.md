@@ -1,5 +1,9 @@
 # vncdesktop
 
+[README.EN](https://github.com/andy03kr/vncdesktop#readmeen)
+
+[README.RU](https://github.com/andy03kr/vncdesktop#readmeru)
+
 VNC running in service mode
 
 ![service mode](pictures/vncdesktop_svc.png)
