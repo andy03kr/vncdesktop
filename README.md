@@ -127,9 +127,9 @@ Open the vncdesktop.au3 file in SciTE Script Editor and press F5 to start the pr
 
 On another computer, run vncviewer vncproxy.home.lan:"Your ID"
 
-If a VNC server is installed on a Windows computer, the "Mode" will be "service mode" and the password specified during installation.
+If a VNC server is installed on a Windows computer, the "Mode" is set to "service mode" and the password specified during installation.
 
-If a VNC server not installed on a Windows computer, the "Mode" will be "app mode" and the password will be defined in "Your Password :".
+If a VNC server not installed on a Windows computer, the "Mode" will be set to "app mode" and the password will be defined in "Your Password :".
 
 ### Build
 
