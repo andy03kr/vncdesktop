@@ -13,8 +13,8 @@ VNC running in application mode
 VNC desktop provides remote access to the user's desktop for technical support when one or both behinde NAT.
 
 If a VNC server is installed on the user's computer, it will be used with the specified password.
-In this case, VNC server run in service mode and vncdesktop will only provide a tunnel to the proxy server.
-If a VNC server not installed on the user`s computer, VNC server will be run in application mode.
+In this case, VNC server runs at service mode and vncdesktop will only provide a tunnel to the proxy server.
+If a VNC server not installed on the user`s computer, VNC server will be running at application mode.
 
 ### Uses
 - PLINK.EXE and PUTTYGEN.EXE from putty package - to create a secure connection to a proxy server and convert a private key.
@@ -119,7 +119,7 @@ Add or change parameters to UltraVNC.ini file
  PortNumber = 15900
  noscreensaver = 1
 ```
-Open the vncdesktop.au3 file in SciTE Script Editor and press F5 - the project will start.
+Open the vncdesktop.au3 file in SciTE Script Editor and press F5 to start the project.
 
 On another computer, run vncviewer vncproxy.home.lan:"Your ID"
 
@@ -163,7 +163,7 @@ On another computer, run vncviewer vncproxy.home.lan:"Your ID" without quotes, f
 Предоставляет удаленный доступ к рабочему столу пользователя для технической поддержки когда один или оба находятся за NAT.
 
 Если на компьютере пользователя установлен VNC сервер - он будет использоваться с заданным паролем.
-В этом случае VNC сервер запущен в "service mode" и vncdesktop обеспечит только тунелем к прокси серверу.
+В этом случае VNC сервер запущен в "service mode", vncdesktop обеспечит только туннелем к прокси серверу.
 Если на компьютере нет установленного VNC сервера, VNC сервер будет запущен в режиме приложения (app mode).
 
 ### Использует
