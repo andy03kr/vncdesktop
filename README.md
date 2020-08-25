@@ -4,11 +4,11 @@
 
 [README.RU](https://github.com/andy03kr/vncdesktop#readmeru)
 
-VNC running in service mode
+VNC running at service mode
 
 ![service mode](pictures/vncdesktop_svc.png)
 
-VNC running in application mode
+VNC running at application mode
 
 ![application mode](pictures/vncdesktop_app.png)
 
