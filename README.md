@@ -74,7 +74,7 @@ or
  firewalld-cmd --permanent --add-port=22022/tcp
  firewalld-cmd --permanent --add-port=40000-50000/tcp
 ```
-Transfer the .ssh/id_rsa file to the Windows computer and modify property vncproxy user
+Transfer the .ssh/id_rsa file to the Windows computer and change shell for vncproxy user
  > usermod -s /bin/false vncproxy
 
 ### Windows computer
