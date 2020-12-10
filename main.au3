@@ -3,6 +3,7 @@
 ; copy /b 7zSD.sfx + config.txt + vncdesktop.7z vncdesktop.exe
 
 #include-once
+#include <AutoItConstants.au3>
 #include <EditConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <WindowsConstants.au3>
@@ -34,8 +35,12 @@ EndIf
 If $sSSH_crt == "" Then
    MsgBox ( $MB_OK, "Error", "Public key file not defined in vncdesktop.ini" )
    Exit
-Else
+EndIf
+
+If FileExists ( $sBin & $sSSH_crt ) Then
    $sSSH_crt = $sBin & $sSSH_crt
+Else
+   MsgBox ( $MB_OK, "Error", "Key file not found in " & $Bin )
 EndIf
 
 If $sHostKey == "" Then
@@ -45,6 +50,7 @@ EndIf
 
 $sMode        = "app mode"
 $sSRV_Stat    = "Not Connected"
+$sSRV_LIST    = ""
 $sCMD         = ""
 $sGUI_PASS    = ""
 $sGUI_ID      = ""
@@ -62,16 +68,19 @@ $idInputID    = ""
 $idInputPASS  = ""
 
 ; find vnc process
-$aProcessList = ProcessList ()
-For $i = 1 To $aProcessList[0][0]
-   If ( StringInStr ( $aProcessList[$i][0], "vnc" ) > 0 ) Or ( StringInStr ( $aProcessList[$i][0], "tvns" ) > 0 ) Then
+$iExitCode = Run ( @ComSpec & ' /C sc queryex type=service state=active', '',  @SW_HIDE, $STDOUT_CHILD )
+While 1
+   $sSRV_LIST &= StdoutRead ( $iExitCode )
+   If @error Then ExitLoop
+   Sleep ( 10 )
+WEnd
+
+If ( StringInStr ( $sSRV_LIST, "vnc" ) > 0 ) Or ( StringInStr ( $sSRV_LIST, "tvns" ) > 0 ) Then
 	  $iVNC_port = 5900
 	  ; use system vnc service
 	  $iVNC_exists = 1
 	  $sMode = "service mode"
-	  ExitLoop 0
-   EndIf
-Next
+EndIf
 
 ; Func ServerStat return:
 ; -5 fail TCP connection
